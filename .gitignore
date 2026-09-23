@@ -1,0 +1,7 @@
+trash/
+**/trash/
+*.o
+*.out
+test
+test2
+.vscode/
