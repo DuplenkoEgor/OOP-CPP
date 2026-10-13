@@ -1,50 +1,55 @@
 #include <iostream>
 using namespace std;
 
-// Класс Point
-class Point {
-private:
+// Структура Point
+struct Point {
     double x, y;
+};
+
+// Класс Point
+class PointClass {
+private:
+    Point p;
 
 public:
     // Конструктор
-    Point(double x = 0, double y = 0) : x(x), y(y) {}
+    PointClass(double x = 0, double y = 0) : p{x, y} {}
 
     // Методы для доступа к данным
-    double getX() const { return x; }
-    double getY() const { return y; }
+    double getX() const { return p.x; }
+    double getY() const { return p.y; }
 
     // Методы для установки значений
-    void setX(double x) { this->x = x; }
-    void setY(double y) { this->y = y; }
+    void setX(double x) { p.x = x; }
+    void setY(double y) { p.y = y; }
 
     // Метод для вывода координат
     void print() const {
-        cout << "Point (" << x << ", " << y << ")" << endl;
+        cout << "Point (" << p.x << ", " << p.y << ")" << endl;
     }
 
     // Функция инициализации
     void init(double x, double y) {
-        this->x = x;
-        this->y = y;
+        p.x = x;
+        p.y = y;
     }
 
     // Функция ввода
     void input() {
         cout << "Enter x: ";
-        cin >> x;
+        cin >> p.x;
         cout << "Enter y: ";
-        cin >> y;
+        cin >> p.y;
     }
 
     // Функция вывода
     void output() const {
-        cout << "Point (" << x << ", " << y << ")" << endl;
+        cout << "Point (" << p.x << ", " << p.y << ")" << endl;
     }
 };
 
 int main() {
-    Point p;
+    PointClass p;
     p.input();
     p.output();
 
