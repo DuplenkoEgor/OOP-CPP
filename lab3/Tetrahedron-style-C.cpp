@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cmath>
+#include <cstdio>
+
 using namespace std;
 
 struct Point {
