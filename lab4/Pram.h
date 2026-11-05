@@ -2,13 +2,6 @@
 #define Pram_h
 #include <iostream>
 
-struct Pram_metric
-{
-    int area;
-    int perim;
-};
-
-
 class Pram {
 private:
     int x1;
@@ -17,10 +10,19 @@ private:
     int y2;
     static int count;
 
+    int get_area() const {
+        return std::abs(x2 - x1) * std::abs(y1 - y2);
+    }
+
+    int get_perim() const {
+        return 2 * (std::abs(x2 - x1) + std::abs(y1 - y2));
+    }
+
 public:
     Pram();
     Pram(int x1, int x2, int y1, int y2);
     Pram(const Pram &other);
+    Pram(int x, int y);
     ~Pram();
     
     friend std::ostream& operator<<(std::ostream &out, const Pram &p);
@@ -29,8 +31,7 @@ public:
 
     void print_info() const;
     void show_pram();
-    int get_area() const;
-    int get_perim() const;
+    void get_perim_and_area(int &perim, int &area);
     static int get_count();
     friend bool get_is_overlap(const Pram &p1, const Pram &p2);
     friend bool is_first_area_is_bigger(const Pram &p1, const Pram &p2);

@@ -12,7 +12,7 @@ Pram::Pram(){
     count++;
 }
 
-Pram::Pram(int x1, int x2, int y1, int y2) : Pram() {
+Pram::Pram(int x1, int x2, int y1, int y2) : Pram(){
     if (x1 != x2 && y1 != y2){
         this->x1 = x1;
         this->x2 = x2;
@@ -20,6 +20,14 @@ Pram::Pram(int x1, int x2, int y1, int y2) : Pram() {
         this->y2 = y2;
     }
     cout << "Constructor with parameters\n";
+}
+
+Pram::Pram(int x, int y) {
+    this->x1 = x;
+    this->y1= x;
+    this->x2 = y;
+    this->y2 = y;
+    cout << "Constructor with two parameters\n";
 }
 
 Pram::Pram(const Pram &other){
@@ -64,7 +72,7 @@ void Pram::print_info() const {
     cout << "Area is: " << this->get_area() << "\n";
 }
 
-void Pram::show_pram() {
+void Pram::show_pram() { // graf
     int width = std::abs(this->x2 - this->x1);
     int height = std::abs(this->y1 - this->y2);
 
@@ -80,16 +88,13 @@ int Pram::get_count() {
     return count;
 }
 
-int Pram::get_area() const {
-    return std::abs(this->x2 - this->x1) * std::abs(this->y1 - this->y2);
-}
-
-int Pram::get_perim() const {
-    return 2 * (std::abs(this->x2 - this->x1) + std::abs(this->y1 - this->y2));
-}
-
 bool is_first_area_is_bigger(const Pram &p1, const Pram &p2) {
     return p1.get_area() >= p2.get_area(); 
+}
+
+void Pram::get_perim_and_area(int &perim, int &area) {
+    perim = this->get_perim();
+    area = this->get_area();
 }
 
 bool get_is_overlap(const Pram &p1, const Pram &p2) {
