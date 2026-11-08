@@ -66,13 +66,27 @@ Pram& Pram::operator=(const Pram &other) {
     return *this;
 }
 
+
+
+int Pram::operator+(const Pram &p) const {
+    return this->get_area() - this->get_area() - this->get_intersection_area(p);
+}
+
+int Pram::operator*(const Pram& p) const {
+    return this->get_intersection_area(p);
+}
+
+int Pram::operator-(const Pram& p) const {
+    return this->get_area() -this->get_intersection_area(p);
+}
+
 void Pram::print_info() const {
     cout << "A(" << this->x1 << ", " << this->y1 << ")\n";
     cout << "B(" << this->x2 << ", " << this->y2 << ")\n";
     cout << "Area is: " << this->get_area() << "\n";
 }
 
-void Pram::show_pram() { // graf
+void Pram::show_pram() { // Graphic in lab 5
     int width = std::abs(this->x2 - this->x1);
     int height = std::abs(this->y1 - this->y2);
 
@@ -83,7 +97,7 @@ void Pram::show_pram() { // graf
         cout << "\n";
     }
 }
-
+  
 int Pram::get_count() {
     return count;
 }
