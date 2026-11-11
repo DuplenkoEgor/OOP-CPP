@@ -18,29 +18,7 @@ private:
         return 2 * (std::abs(x2 - x1) + std::abs(y1 - y2));
     }
 
-    int get_intersection_area(const Pram &p) const {
-        int Xmax;
-        int Xmin;
-        int Ymax;
-        int Ymin;
-        int IntersectionWidth;
-        int IntersectionHeight;
-
-        if (this->x1 > p.x1) {Xmax = this->x1;}
-        else {Xmax = p.x1;}
-        if (this->x2 < p.x2) {Xmin = this->x2;}
-        else {Xmin = p.x2;}
-        if (this->y1 > p.y1) {Ymax = this->y1;}
-        else {Ymax = p.y1;}
-        if (this->y2 < p.y2) {Ymin = this->y2;}
-        else {Ymin = p.y2;}
-        IntersectionWidth = Xmin - Xmax;
-        IntersectionHeight = Ymin - Ymax;
-
-        if (IntersectionWidth < 0) { IntersectionWidth = 0; }
-        if (IntersectionHeight < 0) { IntersectionHeight = 0; }
-        return IntersectionHeight * IntersectionWidth;
-    }
+    int get_intersection_area(const Pram &p) const;
 
 public:
     Pram();
