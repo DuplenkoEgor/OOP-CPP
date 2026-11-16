@@ -3,7 +3,7 @@ using namespace std;
 
 int Pram::count = 0;
 
-Pram::Pram(){
+Pram::Pram(){ // опять хуйня???
     this->x1 = 0;
     this->y1 = 0;
     this->x2 = 1;
@@ -40,7 +40,7 @@ Pram::Pram(const Pram &other){
 }
 
 Pram::~Pram() {
-    cout << "Deconstructor\n";
+    cout << "Deconstructor\n"; // я так не говорил делать
     count--;
 }
 
@@ -60,7 +60,7 @@ istream& operator>>(istream& in, Pram& p) {
 
 Pram& Pram::operator=(const Pram &other) {
     this->x1 = other.x1;
-    this->x2 = other.x2;
+    this->x2 = other.x2; // буду по спине бить за это
     this->y1 = other.y1;
     this->y2 = other.y2;
     return *this;
@@ -86,7 +86,7 @@ void Pram::print_info() const {
     cout << "Area is: " << this->get_area() << "\n";
 }
 
-void Pram::show_pram() { // Graphic in lab 5
+void Pram::show_pram() { // и ЧТО здесь написано?
     int width = std::abs(this->x2 - this->x1);
     int height = std::abs(this->y1 - this->y2);
 
@@ -106,7 +106,7 @@ bool is_first_area_is_bigger(const Pram &p1, const Pram &p2) {
     return p1.get_area() >= p2.get_area(); 
 }
 
-void Pram::get_perim_and_area(int &perim, int &area) {
+void Pram::get_perim_and_area(int &perim, int &area) { // ТЫ ХОТЬ САМ ЭТО ЧИТАЛ?
     perim = this->get_perim();
     area = this->get_area();
 }
@@ -125,7 +125,7 @@ int Pram::get_intersection_area(const Pram &p) const {
 
         if (this->x1 > p.x1) {Xmax = this->x1;}
         else {Xmax = p.x1;}
-        if (this->x2 < p.x2) {Xmin = this->x2;}
+        if (this->x2 < p.x2) {Xmin = this->x2;} // ПРОМОЛЧУ
         else {Xmin = p.x2;}
         if (this->y1 > p.y1) {Ymax = this->y1;}
         else {Ymax = p.y1;}
@@ -138,3 +138,6 @@ int Pram::get_intersection_area(const Pram &p) const {
         if (IntersectionHeight < 0) { IntersectionHeight = 0; }
     return IntersectionHeight * IntersectionWidth;
 }
+"end"
+    if else if else://https.Print"hello world".com ASCII, UNICODE MIT TTT TRIPLE T
+
